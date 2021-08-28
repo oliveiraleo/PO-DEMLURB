@@ -1,0 +1,5 @@
+Dados distancia Google (Maps + Earth Pro)
+
+pto;prox_pto;dist(m);sentido_ida;sentido_volta;comentario
+
+
