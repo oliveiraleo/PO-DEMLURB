@@ -1,3 +1,41 @@
-﻿  Grafo.cpp
-C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Grafo.cpp(41,31): warning C4018: '<': incompatibilidade de signed/unsigned
-  Trabalho-PO.vcxproj -> C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Debug\Trabalho-PO.exe
+﻿  Aresta.cpp
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,10): error C2065: 'Aresta': identificador não declarado
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,2): error C2923: 'std::vector': 'Aresta' não é um argumento de tipo de modelo válido para parâmetro '_Ty'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20): message : consulte a declaração de 'Aresta'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,2): error C2976: 'std::vector': poucos argumentos de modelo
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(443): message : consulte a declaração de 'std::vector'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,18): error C2955: 'std::vector': uso de classe modelo requer a lista de argumentos modelo
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(443): message : consulte a declaração de 'std::vector'
+  Grafo.cpp
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,10): error C2065: 'Aresta': identificador não declarado
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,2): error C2923: 'std::vector': 'Aresta' não é um argumento de tipo de modelo válido para parâmetro '_Ty'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20): message : consulte a declaração de 'Aresta'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,2): error C2976: 'std::vector': poucos argumentos de modelo
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(443): message : consulte a declaração de 'std::vector'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,18): error C2955: 'std::vector': uso de classe modelo requer a lista de argumentos modelo
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(443): message : consulte a declaração de 'std::vector'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Grafo.cpp(45,31): warning C4018: '<': incompatibilidade de signed/unsigned
+  No.cpp
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(15,5): error C2143: erro de sintaxe: ';' ausente antes de '*'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(15,5): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(15,19): error C2238: token(s) inesperado(s) precedendo ';'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(16,5): error C2143: erro de sintaxe: ';' ausente antes de '*'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(16,5): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(16,20): error C2238: token(s) inesperado(s) precedendo ';'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(21,19): error C2061: erro de sintaxe: identificador 'No'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(22,20): error C2061: erro de sintaxe: identificador 'No'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(28,4): error C2143: erro de sintaxe: ';' ausente antes de '*'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(28,4): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(28,14): error C2238: token(s) inesperado(s) precedendo ';'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(29,4): error C2143: erro de sintaxe: ';' ausente antes de '*'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(29,4): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Aresta.h(29,15): error C2238: token(s) inesperado(s) precedendo ';'
+  Trabalho-PO.cpp
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,10): error C2065: 'Aresta': identificador não declarado
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,2): error C2923: 'std::vector': 'Aresta' não é um argumento de tipo de modelo válido para parâmetro '_Ty'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20): message : consulte a declaração de 'Aresta'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,2): error C2976: 'std::vector': poucos argumentos de modelo
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(443): message : consulte a declaração de 'std::vector'
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\No.h(20,18): error C2955: 'std::vector': uso de classe modelo requer a lista de argumentos modelo
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(443): message : consulte a declaração de 'std::vector'
+  Gerando Código...

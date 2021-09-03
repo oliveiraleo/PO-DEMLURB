@@ -1,9 +1,21 @@
 #pragma once
+
+#ifndef ARESTA_H
+#define ARESTA_H
+
+#include <iostream>
 #include "No.h"
+
+
+
+using namespace std;
+
+class No;
 
 class Aresta
 {
 public:
+	
 	Aresta();
 	~Aresta();
 
@@ -25,5 +37,7 @@ private:
 	No* noDestino;
 	double peso;
 	double pesoVolta;
+	
 };
 
+#endif

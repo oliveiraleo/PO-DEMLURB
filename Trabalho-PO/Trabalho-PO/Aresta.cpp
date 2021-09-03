@@ -1,12 +1,15 @@
 #include "Aresta.h"
 
+
 Aresta::Aresta()
 {
 }
 
 Aresta::~Aresta()
 {
+
 }
+
 
 int Aresta::getId()
 {

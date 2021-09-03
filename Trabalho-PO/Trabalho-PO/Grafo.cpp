@@ -10,6 +10,14 @@ Grafo::~Grafo()
 {
 }
 
+void Grafo::imprimir()
+{
+	for (int i = 0; i < listaNos.size(); i++) {
+		cout << listaNos.at(i).getId()<<" ";
+	}
+	cout << endl;
+}
+
 void Grafo::lerArquivo()
 {
 	string path = "ArquivoLeitura";
@@ -42,7 +50,7 @@ void Grafo::lerArquivo()
 
 			break;
 		}
-		else if (escolha = -1) {
+		else if (escolha == -1) {
 			exit(0);
 		}
 	}
@@ -57,7 +65,8 @@ void Grafo::lerArquivo()
 		{
 			arquivo >> linha; // como foi aberto em modo texto(padrão)
 								   //e não binário(ios::bin) pega cada linha
-			cout << linha << endl;
+			//cout << linha << endl;
+
 		}
 		arquivo.close();
 	}

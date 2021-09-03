@@ -8,7 +8,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     Grafo* grafo = new Grafo();
-
+    grafo->imprimir();
     delete grafo;
 }
 
