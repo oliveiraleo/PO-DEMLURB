@@ -13,7 +13,7 @@ Grafo::~Grafo()
 void Grafo::imprimir()
 {
 	for (int i = 0; i < listaNos.size(); i++) {
-		cout << listaNos.at(i).getId()<<" ";
+		cout << listaNos.at(i)->getId() <<" ";
 	}
 	cout << endl;
 }
@@ -64,9 +64,9 @@ void Grafo::lerArquivo()
 		while (!arquivo.eof()) //enquanto end of file for false continua
 		{
 			arquivo >> linha; // como foi aberto em modo texto(padrão)
-								   //e não binário(ios::bin) pega cada linha
+							   //e não binário(ios::bin) pega cada linha
 			//cout << linha << endl;
-
+			auxAdicionaElemento(linha);
 		}
 		arquivo.close();
 	}
@@ -74,3 +74,98 @@ void Grafo::lerArquivo()
 		cout << "Nao foi possivel abrir o arquivo.\n";
 	}
 }
+
+void Grafo::auxAdicionaElemento(string linha)
+{
+	string delimiter = ";";
+	size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+	string token;
+	vector<string> res;
+
+	while ((pos_end = linha.find(delimiter, pos_start)) != string::npos) {
+		token = linha.substr(pos_start, pos_end - pos_start);
+		pos_start = pos_end + delim_len;
+		res.push_back(token);
+	}
+
+	res.push_back(linha.substr(pos_start));
+
+	if (res.at(0)=="no_inicial") {
+		return;
+	}
+
+	bool existeNoInicio = verificaNo(stoi(res.at(0)));
+	bool existeNoDestino = verificaNo(stoi(res.at(1)));
+
+	No* noInicio;
+	No* noDestino;
+
+	if (!existeNoInicio) {
+		noInicio = new No();
+		noInicio->setId(stoi(res.at(0)));
+		listaNos.push_back(noInicio);
+	}
+	else {
+		noInicio = getNo(stoi(res.at(0)));
+	}
+
+	if (!existeNoDestino) {
+		noDestino = new No();
+		noDestino->setId(stoi(res.at(1)));
+		listaNos.push_back(noDestino);
+	}
+	else {
+		noDestino = getNo(stoi(res.at(0)));
+	}
+
+	Aresta* aresta = new Aresta();
+	aresta->setNoDestino(noDestino);
+	aresta->setNoInicio(noInicio);
+	aresta->setPeso(stod(res.at(2)));
+	aresta->setId(listaArestas.size());
+	listaArestas.push_back(aresta);
+	noInicio->adicionaAresta(aresta);
+	noDestino->adicionaAresta(aresta);
+	
+
+	/*
+	string text, char separator = ';';
+	string str;
+	stringstream ss(linha);
+	vector <string> result;
+	while (getline(str, ss, separator)) {
+		result.pushback(str);
+	}
+	*/
+}
+
+
+
+
+bool Grafo::verificaNo(int id)
+{
+	for (No* i : listaNos)
+	{
+		//cout << "i = " << i.getId() << endl;
+		if (i->getId() == id) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+No* Grafo::getNo(int id)
+{
+	//
+	for (No* i : listaNos)
+	{
+		//cout << "i = " << i.getId() << endl;
+		if (i->getId() == id) {
+			return i;
+		}
+	}
+	return nullptr;
+}
+
+

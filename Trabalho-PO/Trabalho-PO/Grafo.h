@@ -7,6 +7,7 @@
 #include <fstream>
 #include <filesystem>
 #include <vector>
+#include <string>
 #include "Aresta.h"
 
 using namespace std;
@@ -24,9 +25,11 @@ public:
 
 private:
 	void lerArquivo();
-	vector <No> listaNos;
-	vector <Aresta> listaArestas;
-	
+	vector <No*> listaNos;
+	vector <Aresta*> listaArestas;
+	void auxAdicionaElemento(string linha);
+	bool verificaNo(int id);
+	No* getNo(int id);
 };
 
 #endif

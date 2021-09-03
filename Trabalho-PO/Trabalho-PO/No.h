@@ -18,10 +18,10 @@ public:
 	int getId();
 
 	void setId(int id);
-
+	void adicionaAresta(Aresta* aresta);
 private:
 	int id;
-	vector <Aresta> listaAresta;
+	vector <Aresta*> listaAresta;
 	//Aresta a;
 };
 #endif

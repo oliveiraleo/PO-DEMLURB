@@ -17,3 +17,8 @@ void No::setId(int id)
 {
     this->id = id;
 }
+
+void No::adicionaAresta(Aresta* aresta)
+{
+    listaAresta.push_back(aresta);
+}
