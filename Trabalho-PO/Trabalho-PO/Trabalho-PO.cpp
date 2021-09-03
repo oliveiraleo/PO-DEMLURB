@@ -2,10 +2,14 @@
 //
 
 #include <iostream>
+#include "Grafo.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    Grafo* grafo = new Grafo();
+
+    delete grafo;
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
