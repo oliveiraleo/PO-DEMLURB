@@ -1,4 +1,4 @@
-﻿  No.cpp
-  Trabalho-PO.cpp
-  Gerando Código...
+﻿  Grafo.cpp
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Grafo.cpp(137,36): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\Trabalho-PO\Grafo.cpp(104,7): warning C4101: 'a': variável local não referenciada
   Trabalho-PO.vcxproj -> C:\Users\Tamandua\Documents\GitHub\PO-DEMLURB\Trabalho-PO\x64\Debug\Trabalho-PO.exe

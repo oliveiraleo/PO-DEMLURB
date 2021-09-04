@@ -8,12 +8,13 @@ Grafo::Grafo()
 
 Grafo::~Grafo()
 {
+
 }
 
 void Grafo::imprimir()
 {
-	for (int i = 0; i < listaNos.size(); i++) {
-		cout << listaNos.at(i)->getId() <<" ";
+	for (int i = 0; i < listaArestas.size(); i++) {
+		cout << listaArestas.at(i)->getId() <<": " << listaArestas.at(i)->getNoInicio()->getId() <<"->"<< listaArestas.at(i)->getNoDestino()->getId() << " "<< listaArestas.at(i)->getPeso() << "  " << listaArestas.at(i)->getPesoVolta()<<endl;
 	}
 	cout << endl;
 }
@@ -61,13 +62,18 @@ void Grafo::lerArquivo()
 	string linha;
 
 	if (arquivo.is_open()) {
+		while (getline(arquivo, linha)) {
+			//cout << linha << endl;
+			auxAdicionaElemento(linha);
+		}
+		/*
 		while (!arquivo.eof()) //enquanto end of file for false continua
 		{
 			arquivo >> linha; // como foi aberto em modo texto(padrão)
 							   //e não binário(ios::bin) pega cada linha
-			//cout << linha << endl;
-			auxAdicionaElemento(linha);
-		}
+			cout << linha << endl;
+			//auxAdicionaElemento(linha);
+		}*/
 		arquivo.close();
 	}
 	else {
@@ -94,6 +100,7 @@ void Grafo::auxAdicionaElemento(string linha)
 		return;
 	}
 
+
 	bool existeNoInicio = verificaNo(stoi(res.at(0)));
 	bool existeNoDestino = verificaNo(stoi(res.at(1)));
 
@@ -115,54 +122,55 @@ void Grafo::auxAdicionaElemento(string linha)
 		listaNos.push_back(noDestino);
 	}
 	else {
-		noDestino = getNo(stoi(res.at(0)));
+		noDestino = getNo(stoi(res.at(1)));
 	}
 
-	Aresta* aresta = new Aresta();
-	aresta->setNoDestino(noDestino);
-	aresta->setNoInicio(noInicio);
-	aresta->setPeso(stod(res.at(2)));
-	aresta->setId(listaArestas.size());
-	listaArestas.push_back(aresta);
-	noInicio->adicionaAresta(aresta);
-	noDestino->adicionaAresta(aresta);
-	
-
-	/*
-	string text, char separator = ';';
-	string str;
-	stringstream ss(linha);
-	vector <string> result;
-	while (getline(str, ss, separator)) {
-		result.pushback(str);
+	Aresta* aresta = getAresta(stoi(res.at(0)), stoi(res.at(1)));
+	if (aresta == nullptr) {
+		aresta = new Aresta();
+		aresta->setNoDestino(noDestino);
+		aresta->setNoInicio(noInicio);
+		aresta->setPeso(stod(res.at(2)));
+		aresta->setId(listaArestas.size());
+		listaArestas.push_back(aresta);
+		noInicio->adicionaAresta(aresta);
+		noDestino->adicionaAresta(aresta);
 	}
-	*/
+	else {
+		aresta->setPesoVolta(stod(res.at(2)));
+	}
+
 }
-
-
 
 
 bool Grafo::verificaNo(int id)
 {
 	for (No* i : listaNos)
 	{
-		//cout << "i = " << i.getId() << endl;
 		if (i->getId() == id) {
 			return true;
 		}
 	}
-
 	return false;
 }
 
 No* Grafo::getNo(int id)
 {
-	//
 	for (No* i : listaNos)
 	{
-		//cout << "i = " << i.getId() << endl;
 		if (i->getId() == id) {
 			return i;
+		}
+	}
+	return nullptr;
+}
+
+Aresta* Grafo::getAresta(int idInicio, int idDestino)
+{
+	for (Aresta* a : listaArestas)
+	{
+		if ((a->getNoInicio()->getId() == idInicio) && (a->getNoDestino()->getId() == idDestino)) {
+			return a;
 		}
 	}
 	return nullptr;

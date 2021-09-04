@@ -3,6 +3,7 @@
 
 Aresta::Aresta()
 {
+    pesoVolta = numeric_limits<double>::infinity();
 }
 
 Aresta::~Aresta()

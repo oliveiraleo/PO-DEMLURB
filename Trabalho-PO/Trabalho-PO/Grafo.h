@@ -30,6 +30,7 @@ private:
 	void auxAdicionaElemento(string linha);
 	bool verificaNo(int id);
 	No* getNo(int id);
+	Aresta* getAresta(int idInicio, int idDestino);
 };
 
 #endif

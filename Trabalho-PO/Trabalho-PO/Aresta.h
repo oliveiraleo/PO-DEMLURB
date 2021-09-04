@@ -4,8 +4,8 @@
 #define ARESTA_H
 
 #include <iostream>
+#include <limits>
 #include "No.h"
-
 
 
 using namespace std;
