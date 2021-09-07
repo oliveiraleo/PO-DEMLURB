@@ -19,10 +19,12 @@ class Grafo
 public:
 	Grafo();
 	~Grafo();
-	void adicionaNo(No* no);
-	void adicionaAresta(Aresta* aresta);
+	//void adicionaNo(No* no);
+	//void adicionaAresta(Aresta* aresta);
 	void imprimir();
 	double** retornaMatrizDistancia();
+	int quantidadeArestas();
+	int quatidadeNos();
 
 private:
 	void lerArquivo();

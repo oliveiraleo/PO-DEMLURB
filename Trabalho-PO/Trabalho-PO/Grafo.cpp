@@ -21,9 +21,9 @@ void Grafo::imprimir()
 
 double** Grafo::retornaMatrizDistancia()
 {
-	double** matriz = new double *[listaNos.size()];
+	double** matriz = new double*[listaNos.size()];
 	for (int i = 0; i < listaNos.size(); i++) {
-		matriz[i] = new double [listaNos.size()];
+		matriz[i] = new double[listaNos.size()];
 	}
 
 	//preencher a matriz com valores 0 ou infinito
@@ -40,11 +40,13 @@ double** Grafo::retornaMatrizDistancia()
 
 	for (Aresta* a : listaArestas) {
 		matriz[a->getNoInicio()->getId()][a->getNoDestino()->getId()] = a->getPeso();
-		if (a->getPesoVolta() != numeric_limits<double>::infinity()) {
+		if (a->getPesoVolta() !=200000) {
+		//if (a->getPesoVolta() != numeric_limits<double>::infinity()) {
 			matriz[a->getNoDestino()->getId()][a->getNoInicio()->getId()] = a->getPesoVolta();
 		}
 	}
 
+	
 	for (int i = 0; i < listaNos.size(); i++) {
 		for (int j = 0; j < listaNos.size(); j++) {
 			cout << matriz[i][j] << " ";
@@ -53,6 +55,16 @@ double** Grafo::retornaMatrizDistancia()
 	}
 
 	return matriz;
+}
+
+int Grafo::quantidadeArestas()
+{
+	return listaArestas.size();
+}
+
+int Grafo::quatidadeNos()
+{
+	return listaNos.size();
 }
 
 void Grafo::lerArquivo()
@@ -81,8 +93,8 @@ void Grafo::lerArquivo()
 
 	while (true) {
 		//cout << "Digite um valor correspondente ao arquivo ou -1 para sair"<<endl;
-		
-		cin >> escolha;
+		escolha = 0;
+		//cin >> escolha;
 		if (escolha >= 0 && escolha < nomeArquivos.size()) {
 
 			break;
