@@ -19,6 +19,42 @@ void Grafo::imprimir()
 	cout << endl;
 }
 
+double** Grafo::retornaMatrizDistancia()
+{
+	double** matriz = new double *[listaNos.size()];
+	for (int i = 0; i < listaNos.size(); i++) {
+		matriz[i] = new double [listaNos.size()];
+	}
+
+	//preencher a matriz com valores 0 ou infinito
+	for (int i = 0; i < listaNos.size(); i++) {
+		for (int j = 0; j < listaNos.size(); j++) {
+			if (i == j) {
+				matriz[i][j] = 0;
+			}
+			else {
+				matriz[i][j] = numeric_limits<double>::infinity();
+			}
+		}
+	}
+
+	for (Aresta* a : listaArestas) {
+		matriz[a->getNoInicio()->getId()][a->getNoDestino()->getId()] = a->getPeso();
+		if (a->getPesoVolta() != numeric_limits<double>::infinity()) {
+			matriz[a->getNoDestino()->getId()][a->getNoInicio()->getId()] = a->getPesoVolta();
+		}
+	}
+
+	for (int i = 0; i < listaNos.size(); i++) {
+		for (int j = 0; j < listaNos.size(); j++) {
+			cout << matriz[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	return matriz;
+}
+
 void Grafo::lerArquivo()
 {
 	string path = "ArquivoLeitura";

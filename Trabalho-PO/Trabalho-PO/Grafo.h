@@ -22,6 +22,7 @@ public:
 	void adicionaNo(No* no);
 	void adicionaAresta(Aresta* aresta);
 	void imprimir();
+	double** retornaMatrizDistancia();
 
 private:
 	void lerArquivo();

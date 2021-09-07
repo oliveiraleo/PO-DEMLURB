@@ -19,6 +19,7 @@ public:
 
 	void setId(int id);
 	void adicionaAresta(Aresta* aresta);
+
 private:
 	int id;
 	vector <Aresta*> listaAresta;
