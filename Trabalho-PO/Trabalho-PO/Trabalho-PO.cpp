@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ilcplex/ilocplex.h"
 #include "Grafo.h"
+#include <cmath>
 
 typedef IloArray<IloNumVarArray> NumVar2D; //Variável de decisão 2D
 typedef IloArray<NumVar2D> NumVar3D;
@@ -60,8 +61,8 @@ int main()
 #pragma region Constraints
     
     for (int s = 0; s < nS; s++) {
-        IloExpr exp1(env);
         for (int d = 0; d < nD; d++) {
+            IloExpr exp1(env);
             if (M[s][d] != numeric_limits<double>::infinity()) {
                 if (s != d) {
                     exp1 += X[s][d];
@@ -70,11 +71,114 @@ int main()
             }
         }
     }
+    
+    for (int d = 0; d < nD; d++) {
+        for (int s = 0; s < nS; s++) {
+            IloExpr exp2(env);
+            if (M[s][d] != numeric_limits<double>::infinity()) {
+                if (s != d) {
+                    exp2 += X[s][d];
+                    Model.add(exp2 >= 1);
+                }
+            }
+        }
+    }
 
+    /*O conjunto de arestas
+orientadas será denotado por Ed. Para a execução, a partir de agora, d(v) será a diferença entre o
+número de arcos e arestas orientadas que entram em v e o número de arcos e arestas orientadas
+que saem de v, ou seja, d(v) = d(v)− - d(v)+ .*/
 
     for (int d = 0; d < nD; d++) {
-        IloExpr exp3(env);
         for (int s = 0; s < nS; s++) {
+            IloExpr exp3(env);
+            int numEntrada = 0;
+            int numSaida = 0;
+            int numEntradaDestino = 0;
+            int numSaidaDestino = 0;
+            for (int j = 0; j < numNos; j++)
+            {
+                if (M[d][j]>0 && (M[d][j]!=numeric_limits<double>::infinity())) {
+                    numSaida += 1;
+                }
+                if (M[j][d]>0 && (M[j][d]!=numeric_limits<double>::infinity())) {
+                    numEntrada += 1;
+                }
+                if (M[s][j] > 0 && (M[s][j] != numeric_limits<double>::infinity())) {
+                    numSaidaDestino += 1;
+                }
+                if (M[j][s] > 0 && (M[j][s] != numeric_limits<double>::infinity())) {
+                    numEntradaDestino += 1;
+                }
+            }
+            if (M[d][s] != numeric_limits<double>::infinity()) {
+                if (s != d) {
+                    //exp3 += X[s][d];
+                    int saldo = numEntrada - numSaida;
+                    exp3 += X[d][s];
+                    if (saldo > 0) {
+                       // exp3 += X[d][s];
+                        if (saldo == 1)
+                            saldo += 1;
+                    }
+                    
+                    else if(saldo<0) {
+                       //exp3 += X[d][s];
+
+                        //saldo = saldo *(-1);
+
+                        //if(saldo==1)
+                        //saldo += 1;
+                    }
+                    if (numEntradaDestino - numSaidaDestino < 0) {
+                        if (numSaidaDestino != 0) {
+                            if (saldo < 0) {
+                                saldo = (saldo * (-1)) + numEntradaDestino - numSaidaDestino ;
+                            }
+                            else {
+                                saldo = saldo + abs(numEntradaDestino - numSaidaDestino);
+                            }
+                        }
+                            
+                    }
+                    //saldo += 1;
+                    Model.add(exp3 >= saldo);
+                }
+            }
+        }
+    }
+
+    /*
+    bool* isPercorrido = new bool[numArestas];
+    int *qtdPercorrido = new int[numArestas];
+    for (int i = 0; i < numArestas; i++) {
+        isPercorrido[i] = false;
+        qtdPercorrido[i] = 0;
+    }
+
+    while (true)
+    {
+
+        bool todosPercorrido = false;
+        for (int i = 0; i < numArestas;i++) {
+            if (!isPercorrido[i]) {
+                todosPercorrido = false;
+                break;
+            }
+            else {
+                todosPercorrido = true;
+            }
+        }
+        if (todosPercorrido) {
+            break;
+        }
+    }
+    */
+    //Model.add(exp1 == exp2);
+/*
+    for (int d = 0; d < nD; d++) {
+        for (int s = 0; s < nS; s++) {
+            IloExpr exp3(env);
             if (M[s][d] != numeric_limits<double>::infinity()) {
                 if (s != d) {
                     exp3 += X[s][d];
@@ -83,7 +187,7 @@ int main()
             }
         }
     }
-
+*/
 
 
 
@@ -137,7 +241,7 @@ int main()
             }
         }
     }
-    cout << "Ha " << cont << " ruas, era para ser: " <<numArestas<<  endl;
+    //cout << "Ha " << cont << " ruas, era para ser: " <<numArestas<<  endl;
     /*
 #pragma region Criando o grafo
     //Leitura do arquivo

@@ -25,7 +25,7 @@ public:
 	double** retornaMatrizDistancia();
 	int quantidadeArestas();
 	int quatidadeNos();
-
+	bool vericaAresta(int noInicio, int noDestino);
 private:
 	void lerArquivo();
 	vector <No*> listaNos;

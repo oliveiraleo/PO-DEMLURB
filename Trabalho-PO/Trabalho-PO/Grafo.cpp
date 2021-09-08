@@ -53,7 +53,7 @@ double** Grafo::retornaMatrizDistancia()
 		}
 		cout << endl;
 	}
-
+	
 	return matriz;
 }
 
@@ -65,6 +65,17 @@ int Grafo::quantidadeArestas()
 int Grafo::quatidadeNos()
 {
 	return listaNos.size();
+}
+
+bool Grafo::vericaAresta(int noInicio, int noDestino)
+{
+	for (Aresta *a :listaArestas)
+	{
+		if ((a->getNoInicio()->getId() ==noInicio) && (a->getNoDestino()->getId()==noDestino)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 void Grafo::lerArquivo()
