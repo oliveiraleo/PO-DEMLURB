@@ -46,13 +46,13 @@ double** Grafo::retornaMatrizDistancia()
 		}
 	}
 
-	
+	/*
 	for (int i = 0; i < listaNos.size(); i++) {
 		for (int j = 0; j < listaNos.size(); j++) {
 			cout << matriz[i][j] << " ";
 		}
 		cout << endl;
-	}
+	}*/
 	
 	return matriz;
 }
@@ -104,8 +104,8 @@ void Grafo::lerArquivo()
 
 	while (true) {
 		//cout << "Digite um valor correspondente ao arquivo ou -1 para sair"<<endl;
-		escolha = 0;
-		//cin >> escolha;
+		//escolha = 0;
+		cin >> escolha;
 		if (escolha >= 0 && escolha < nomeArquivos.size()) {
 
 			break;
