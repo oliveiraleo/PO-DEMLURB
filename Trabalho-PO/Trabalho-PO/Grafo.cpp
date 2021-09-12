@@ -78,6 +78,136 @@ bool Grafo::vericaAresta(int noInicio, int noDestino)
 	return false;
 }
 
+bool verificaTodasAsRotas(int** matriz, int numNos) {
+	for (int i = 0; i < numNos; i++)
+	{
+		for (int j = 0; j < numNos; j++)
+		{
+			if (matriz[i][j] > 0) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+vector<int> Grafo::retornaRota(int** matriz, int numNos)
+{
+	vector<int> rota;
+	rota.push_back(0);
+	int atual = 0;
+	while (!verificaTodasAsRotas(matriz, numNos)) {
+		for (int j = 0; j < numNos; j++) {
+			if (matriz[atual][j] > 0) {
+				matriz[atual][j] -= 1;
+				rota.push_back(j);
+				atual = j;
+				j = -1;
+			}
+		}
+		if (verificaTodasAsRotas(matriz, numNos)) {
+			break;
+		}
+		vector <int> path;
+		int pai = atual;
+		vector <int> filhos;
+
+		for (int i = 1; i < rota.size(); i++)
+		{
+			if (rota.at(i - 1) == pai) {
+				filhos.push_back(rota.at(i));
+			}
+		}
+
+		for (int i = 0; i < filhos.size(); i++)
+		{
+
+			for (int j = 0; j < numNos; j++) {
+				if (matriz[filhos.at(i)][j] > 0) {
+					atual = filhos.at(i);
+					rota.push_back(atual);
+					break;
+				}
+			}
+			if (atual != pai) {
+				break;
+			}
+		}
+
+		if (atual == pai) {
+			bool proxEncontrado = false;
+			for (int i = 0; i < rota.size(); i++) {
+				int index = rota.at(i);
+				for (int j = 0; j < numNos; j++) {
+					if (matriz[index][j] > 0) {
+						atual = index;
+						proxEncontrado = true;
+						break;
+					}
+				}
+				if (proxEncontrado) {
+					break;
+				}
+			}
+
+			proxEncontrado = false;
+			for (int i = 0; i < rota.size(); i++) {
+				if (rota.at(i) == pai) {
+					path.clear();
+					proxEncontrado = true;
+				}
+				else if (proxEncontrado) {
+					path.push_back(rota.at(i));
+				}
+				if (rota.at(i) == atual) {
+					break;
+				}
+			}
+			bool evitaLongoCaminho = false;
+			while (!evitaLongoCaminho)
+			{
+				int no1, no2;
+				int pos1, pos2;
+				for (int i = 0; i < path.size(); i++)
+				{
+					no1 = path.at(i);
+					pos1 = i;
+					evitaLongoCaminho = true;
+					for (int j = 0; j < path.size(); j++)
+					{
+						no2 = path.at(j);
+						pos2 = j;
+						if (i != j) {
+							if (no1 == no2) {
+								evitaLongoCaminho = false;
+								break;
+							}
+						}
+					}
+					if (!evitaLongoCaminho) {
+						break;
+					}
+				}
+				if (path.size() == 0) {
+					break;
+				}
+				if (!evitaLongoCaminho) {
+					path.erase(path.begin() + pos1, path.begin() + pos2);
+				}
+			}
+			rota.insert(rota.end(), path.begin(), path.end());
+		}
+	}
+	double valor = 0;
+	double** m = retornaMatrizDistancia();
+	for (int i = 1; i < rota.size(); i++) {
+		matriz[rota.at(i - 1)][rota.at(i)] += 1;
+		valor = valor + m[rota.at(i - 1)][rota.at(i)];
+	}
+	cout << "Distancia gasta considerando retornos " << valor <<"m" << endl;
+	return rota;
+}
+
 void Grafo::lerArquivo()
 {
 	string path = "ArquivoLeitura";
@@ -105,7 +235,7 @@ void Grafo::lerArquivo()
 	while (true) {
 		//cout << "Digite um valor correspondente ao arquivo ou -1 para sair"<<endl;
 		escolha = 0;
-		//cin >> escolha;
+		cin >> escolha;
 		if (escolha >= 0 && escolha < nomeArquivos.size()) {
 
 			break;
@@ -167,7 +297,6 @@ void Grafo::auxAdicionaElemento(string linha)
 	if (res.at(0)=="no_inicial") {
 		return;
 	}
-
 
 	bool existeNoInicio = verificaNo(stoi(res.at(0)));
 	bool existeNoDestino = verificaNo(stoi(res.at(1)));

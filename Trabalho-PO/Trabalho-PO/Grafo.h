@@ -26,7 +26,7 @@ public:
 	int quantidadeArestas();
 	int quatidadeNos();
 	bool vericaAresta(int noInicio, int noDestino);
-	void imprimeCaminho(int* vet);
+	vector <int> retornaRota(int** matriz, int numNos);
 private:
 	void lerArquivo();
 	vector <No*> listaNos;
