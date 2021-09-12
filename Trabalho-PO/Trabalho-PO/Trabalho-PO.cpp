@@ -9,6 +9,213 @@
 typedef IloArray<IloNumVarArray> NumVar2D; //Variável de decisão 2D
 typedef IloArray<NumVar2D> NumVar3D;
 
+bool verificaTodasAsRotas(int** matriz, int numNos) {
+    for (int i = 0; i < numNos; i++)
+    {
+        for (int j = 0; j < numNos; j++)
+        {
+            if (matriz[i][j] > 0) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+void imprimeRota(int** matriz, int numNos) {
+    int atual = 0;
+    cout << "Rota:" << endl;
+   // cout << "0->";
+    vector <int> rota;
+    rota.push_back(0);
+    while (!verificaTodasAsRotas(matriz, numNos)) {
+        for (int j = 0; j < numNos; j++) {
+            if (matriz[atual][j] > 0) {
+                matriz[atual][j] -= 1;
+                rota.push_back(j);
+                atual = j;
+                j = -1;
+            }
+        }
+        if (verificaTodasAsRotas(matriz, numNos)) {
+            break;
+        }
+        vector <int> path;
+        int pai = atual;
+        vector <int> filhos;
+
+        for (int i = 1; i < rota.size(); i++)
+        {
+            if (rota.at(i - 1) == pai) {
+                filhos.push_back(rota.at(i));
+            }
+        }
+
+        for  (int i = 0;i< filhos.size();i++)
+        {
+
+            for (int j = 0; j < numNos; j++) {
+                if (matriz[filhos.at(i)][j] > 0) {
+                    atual = filhos.at(i);
+                    rota.push_back(atual);
+                    break;
+                }
+            }
+            if (atual != pai) {
+                break;
+            }
+        }
+
+        if (atual == pai) {
+            bool proxEncontrado = false;
+            for (int i = 0; i < rota.size(); i++) {
+                int index = rota.at(i);
+                for (int j = 0; j < numNos; j++) {
+                    if (matriz[index][j] > 0) {
+                        atual = index;
+                        proxEncontrado = true;
+                        break;
+                    }
+                }
+                if (proxEncontrado) {
+                    break;
+                }
+            }
+
+            proxEncontrado = false;
+            for (int i = 0; i < rota.size(); i++) {
+                if (rota.at(i) == pai) {
+                    path.clear();
+                    proxEncontrado = true;
+                }
+                else if (proxEncontrado) {
+                    path.push_back(rota.at(i));
+                }
+                if (rota.at(i) == atual) {
+                    break;
+                }
+            }
+            bool evitaLongoCaminho = false;
+            while (!evitaLongoCaminho)
+            {
+                int no1, no2;
+                int pos1, pos2;
+                for (int i = 0; i < path.size(); i++)
+                {
+                    no1 = path.at(i);
+                    pos1 = i;
+                    evitaLongoCaminho = true;
+                    for (int j = 0; j < path.size(); j++)
+                    {
+                        no2 = path.at(j);
+                        pos2 = j;
+                        if (i != j) {
+                            if (no1 == no2) {
+                                evitaLongoCaminho = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (!evitaLongoCaminho) {
+                        break;
+                    }
+                }
+                if (path.size() == 0) {
+                    break;
+                }
+                if (!evitaLongoCaminho) {
+                    path.erase(path.begin() + pos1, path.begin() + pos2);
+                }
+               
+
+
+            }
+            
+
+            rota.insert(rota.end(), path.begin(), path.end());
+
+            /*
+            bool proxEncontrado = false;
+            for (int i = 0; i < numNos;i++) {
+                for (int j=0; j < numNos; j++) {
+                    if (matriz[i][j] > 0) {
+                        atual = j;
+                        proxEncontrado = true;
+                        break;
+                    }
+                }
+                if (proxEncontrado) {
+                    break;
+                }
+            }
+
+            proxEncontrado = false;
+            for (int i = 0; i < rota.size();i++) {
+                if (rota.at(i)==pai) {
+                    path.clear();
+                    proxEncontrado = true;
+                } 
+                else if (proxEncontrado) {
+                    path.push_back(i);
+                } 
+                if (rota.at(i) == atual) {
+                    break;
+                }
+            }
+            rota.insert(rota.end(), path.begin(), path.end());
+            */
+        }
+
+
+        /*
+        vector <int> path;
+        int pai = i;
+        vector <int> filhos;
+        for (int i = 0; i < length; i++)
+        {
+
+        }
+            for e in range(len(E)) :
+                if E[e] == 0 :
+                    continue
+                    if E[e][1] == v :
+                        pai.append(E[e][0])
+                        break
+
+                        if not pai :
+                            for i in range(len(rota)) :
+                                if i != 0 :
+                                    pai.append(rota[i])
+                                    if rota[i] == v :
+                                        break
+
+                                        #print("List is empty")
+                                        for i in rota :
+        if i != atual :
+            path.append(i)
+            if i == pai[0] :
+                break
+                return v, path
+
+                for i in rota :
+        if i != atual :
+            if i == pai[0] :
+                break
+            else :
+                path.append(i)
+                */
+
+    }
+    for (int i : rota) {
+        cout << i << " -> ";
+    }
+    cout << endl;
+
+}
+
+
+
+
 int main()
 {
 #pragma region Criando o grafo
@@ -219,20 +426,37 @@ que saem de v, ou seja, d(v) = d(v)− - d(v)+ .*/
 
     cout << "O caminho otimizado percorrido foi: " << obj << endl;
     int cont = 0;
+    int* vet = new int[numNos];
+    int** matrizPercorrida = new int *[numNos];
+
+    for (int i = 0; i < numNos;i++) {
+        vet[i] = 0;
+        matrizPercorrida[i] = new int[numNos];
+    }
+
     for (int i = 0; i < numNos; i++)
     {
         for (int j = 0; j < numNos; j++)
         {
+            matrizPercorrida[i][j] = 0;
             if (cplex.isExtracted(X[i][j])) {
                 double Xval = cplex.getValue(X[i][j]);
                 if (Xval > 0) {
                     cont++;
                     cout << "\t X[" << i << "][" << j << "] = " << Xval << endl;
-                }
+                    matrizPercorrida[i][j] = Xval;
+                    vet[j] += Xval;
+                }  
             }
+            cout << matrizPercorrida[i][j] << " ";
         }
+        cout << endl;
     }
-    //cout << "Ha " << cont << " ruas, era para ser: " <<numArestas<<  endl;
+   // cout << "Ha " << cont << " ruas, era para ser: " <<numArestas<<  endl;
+    for (int i = 0; i < numNos; i++) {
+      //  cout << vet[i] << endl;
+    }
+    imprimeRota(matrizPercorrida, numNos);
 #pragma endregion
 
 

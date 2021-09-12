@@ -104,8 +104,8 @@ void Grafo::lerArquivo()
 
 	while (true) {
 		//cout << "Digite um valor correspondente ao arquivo ou -1 para sair"<<endl;
-		//escolha = 0;
-		cin >> escolha;
+		escolha = 0;
+		//cin >> escolha;
 		if (escolha >= 0 && escolha < nomeArquivos.size()) {
 
 			break;
@@ -151,6 +151,15 @@ void Grafo::auxAdicionaElemento(string linha)
 		token = linha.substr(pos_start, pos_end - pos_start);
 		pos_start = pos_end + delim_len;
 		res.push_back(token);
+	}
+
+	if (res.size() == 0) {
+		delimiter = ",";
+		while ((pos_end = linha.find(delimiter, pos_start)) != string::npos) {
+			token = linha.substr(pos_start, pos_end - pos_start);
+			pos_start = pos_end + delim_len;
+			res.push_back(token);
+		}
 	}
 
 	res.push_back(linha.substr(pos_start));
