@@ -23,12 +23,14 @@ pto;prox_pto;dist(m);sentido_ida;sentido_volta;comentario
 06;07;196.22;1;0;"Getulio Sao Sebastiao ate Floriano"
 08;07;164.48;1;0;"Rua Floriano Peixoto 1"
 07;09;114.46;1;0;"Rua Floriano Peixoto 2"
+07;22;192.01;1;0;
 09;10;75.17;1;0;"Rua Floriano Peixoto 3"
 10;11;108.36;1;0;"Rua Floriano Peixoto 4"
 09;12;50.59;1;0;"Rua Batista de Oliveira 3"
 13;12;210.67;1;0;"Rua Fonseca Hermes"
 12;22;109.79;1;0;"Rua Batista de Oliveira 4"
 21;22;304.63;1;1;"Rua Marecheal Deodoro ida e volta"
+22;13;436.73;1;0;
 22;23;146.81;1;0;"Getulio Marechal ate Halfeld"
 21;08;183.02;1;0;"Rio Branco sentido norte 1"
 
@@ -38,12 +40,14 @@ pto;prox_pto;dist(m);sentido_ida;sentido_volta;comentario
 11;14;185.35;1;0;
 14;10;146.64;1;0;
 14;15;86.53;1;0;"Rua Sao Sebastiao 1"
+14;16;145.58;1;0;
 15;06;227.96;1;0;"Rua Sao Sebastiao 2"
 16;15;88.79;1;0;"Rua Batista de Oliveira 1"
 15;09;170.94;1;0;"Rua Batista de Oliveira 2"
 16;17;158.51;1;0;
 17;18;43.66;1;0;"Benjamin Constant - Hiper Bretas frente"
 18;01;96.28;1;0;"Benjamin Constant - Hiper Bretas frente 2"
+18;16;220.57;1;0;
 17;19;158.42;1;0;"Fora da rota"
 
 ## Extra - Fora da rota
