@@ -205,6 +205,10 @@ vector<int> Grafo::retornaRota(int** matriz, int numNos)
 		valor = valor + m[rota.at(i - 1)][rota.at(i)];
 	}
 	cout << "Distancia gasta considerando retornos " << valor <<"m" << endl;
+
+
+	gravaRota(rota);
+
 	return rota;
 }
 
@@ -247,6 +251,7 @@ void Grafo::lerArquivo()
 
 	ifstream arquivo;
 	arquivo.open(nomeArquivos.at(escolha));
+	nomeArquivo = nomeArquivos.at(escolha);
 	//arquivo.open("ArquivoLeitura/tabela-emparelhamento-sorted-by-cost.csv");
 	string linha;
 
@@ -332,6 +337,7 @@ void Grafo::auxAdicionaElemento(string linha)
 		listaArestas.push_back(aresta);
 		noInicio->adicionaAresta(aresta);
 		noDestino->adicionaAresta(aresta);
+		aresta->setDescricao(res.at(3));
 	}
 	else {
 		aresta->setPesoVolta(stod(res.at(2)));
@@ -371,6 +377,64 @@ Aresta* Grafo::getAresta(int idInicio, int idDestino)
 		}
 	}
 	return nullptr;
+}
+
+
+
+void Grafo::gravaRota(vector<int> rota)
+{
+	string path = "ArquivoResultado/";
+	ofstream out(path+"Resultado.txt");
+	Aresta* a;
+
+	out << "Resultado do arquivo: " << nomeArquivo << endl;
+
+	out << "Caminho formado por ruas:" << endl;
+
+	double distancia = 0;
+	for (int i = 1; i < rota.size();i++) {
+		a = getAresta(rota.at(i - 1), rota.at(i));
+		out << a->getDescricao() << "-> ";
+		distancia = distancia + a->getPeso();
+	}
+	out << endl;
+	out << "Caminho formado por pontos: " << endl;
+
+	for (int i = 1; i < rota.size(); i++) {
+		out << "(" << rota.at(i - 1) << "," << rota.at(i) << ") ";
+	}
+	out << endl;
+	out << "Distância percorrida: " << distancia << "m" << endl;
+
+	cout << endl;
+	//out << input;
+	out.close();
+
+	out= ofstream(path + "Resultado2.txt");
+
+	out << "Resultado do arquivo: " << nomeArquivo << endl;
+	out << "Distância percorrida: " << distancia << "m" << endl;
+	out << "Caminho formado por ruas:" << endl;
+
+	string anterior="";
+	for (int i = 1; i < rota.size(); i++) {
+		a = getAresta(rota.at(i - 1), rota.at(i));
+
+		out << anterior << "-> "<< a->getDescricao()<<endl ;
+		anterior = a->getDescricao();
+	}
+	out << endl;
+	out << "Caminho formado por pontos: " << endl;
+
+	for (int i = 1; i < rota.size(); i++) {
+		out << "(" << rota.at(i - 1) << "," << rota.at(i) << ") ";
+	}
+	out << endl;
+
+
+	cout << endl;
+	//out << input;
+	out.close();
 }
 
 

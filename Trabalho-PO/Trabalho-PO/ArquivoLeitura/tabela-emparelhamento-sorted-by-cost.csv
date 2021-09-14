@@ -1,39 +1,39 @@
-no_inicial,no_final,custo
-0,19,78.97
-0,1,131.91
-1,2,84.41
-1,6,195.96
-2,0,164.02
-2,3,849.24
-3,4,149.85
-4,8,658.14
-5,2,130.83
-6,5,72.93
-6,7,196.22
-7,9,114.46
-7,22,192.01
-8,7,164.48
-9,12,50.59
-9,10,75.17
-10,11,108.36
-11,14,185.35
-12,22,109.79
-13,11,47.06
-13,12,210.67
-14,15,86.53
-14,16,145.58
-14,10,146.64
-15,9,170.94
-15,6,227.96
-16,15,88.79
-16,17,158.51
-17,18,43.66
-18,1,96.28
-18,16,220.57
-19,20,141.50
-20,0,163.00
-21,8,183.02
-22,21,304.63
-22,23,146.81
-22,13,436.73
-23,21,975.88
+no_inicial,no_final,custo,descricao
+0,19,78.97,Rua Silva Jardim
+0,1,131.91,Rua Roberto de Barros
+1,2,84.41,Rua Benjamin Constant
+1,6,195.96,Rua Jarbas de Lery Santos
+2,0,164.02,Av. Barao do Rio Branco / Rua Silva Jardim
+2,3,849.24,Av. Barao do Rio Branco
+3,4,149.85,Rua Fernando Lobo
+4,8,658.14,Rua Santo Antonio / Rua Floriano Peixoto
+5,2,130.83,Av. Barao do Rio Branco
+6,5,72.93,Av. Getulio Vargas
+6,7,196.22,Av. Getulio Vargas
+7,9,114.46,Rua Floriano Peixoto
+7,22,192.01,Av. Getulio Vargas
+8,7,164.48,Rua Floriano Peixoto
+9,12,50.59,Rua Batista de Oliveira
+9,10,75.17,Rua Floriano Peixoto
+10,11,108.36,Rua Floriano Peixoto
+11,14,185.35,Av. Francisco Bernardino
+12,22,109.79,Rua Batista de Oliveira
+13,11,47.06,Av. Francisco Bernardino
+13,12,210.67,Rua Fonseca Hermes
+14,15,86.53,Rua Sao Sebastiao
+14,16,145.58,Av. Francisco Bernardino
+14,10,146.64,Rua Hipolito Caron
+15,9,170.94,Rua Batista de Oliveira
+15,6,227.96,Rua Sao Sebastiao
+16,15,88.79,Rua Batista de Oliveira
+16,17,158.51,Av. Francisco Bernardino
+17,18,43.66,Rua Benjamin Constant
+18,1,96.28,Rua Benjamin Constant
+18,16,220.57,Rua Francisco Maia
+19,20,141.50,Av. Francisco Bernardino
+20,0,163.00,Rua Roberto de Barros
+21,8,183.02,Av. Barao do Rio Branco
+22,21,304.63,Rua Marechal Deodoro
+22,23,146.81,Av. Getulio Vargas
+22,13,436.73,Rua Marechal Deodoro / Rua Francisco Bernardino
+23,21,975.88,Rua Halfeld / Av. Rio Branco

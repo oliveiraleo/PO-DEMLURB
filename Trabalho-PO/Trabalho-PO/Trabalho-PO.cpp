@@ -32,6 +32,7 @@ int main()
     int numArestas = grafo->quantidadeArestas();
     int numNos = grafo->quatidadeNos();
     double** matriz = grafo->retornaMatrizDistancia();
+    cout << "Áã" << endl;
     //Teste cplex
     
 #pragma endregion

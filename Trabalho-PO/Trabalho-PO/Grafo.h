@@ -9,6 +9,10 @@
 #include <vector>
 #include <string>
 #include "Aresta.h"
+#include <iomanip>
+#include <ctime>
+#include <sstream>
+#include <chrono>
 
 using namespace std;
 
@@ -27,6 +31,7 @@ public:
 	int quatidadeNos();
 	bool vericaAresta(int noInicio, int noDestino);
 	vector <int> retornaRota(int** matriz, int numNos);
+
 private:
 	void lerArquivo();
 	vector <No*> listaNos;
@@ -35,6 +40,8 @@ private:
 	bool verificaNo(int id);
 	No* getNo(int id);
 	Aresta* getAresta(int idInicio, int idDestino);
+	string nomeArquivo;
+	void gravaRota(vector <int> rota);
 };
 
 #endif

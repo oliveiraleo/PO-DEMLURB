@@ -37,6 +37,11 @@ double Aresta::getPesoVolta()
     return pesoVolta;
 }
 
+string Aresta::getDescricao()
+{
+    return descricao;
+}
+
 void Aresta::setId(int id)
 {
     this->id = id;
@@ -60,4 +65,9 @@ void Aresta::setPeso(double peso)
 void Aresta::setPesoVolta(double peso)
 {
     pesoVolta = peso;
+}
+
+void Aresta::setDescricao(string des)
+{
+    descricao = des;
 }

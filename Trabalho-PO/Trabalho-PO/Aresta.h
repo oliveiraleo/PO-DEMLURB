@@ -24,12 +24,14 @@ public:
 	No* getNoDestino();
 	double getPeso();
 	double getPesoVolta();
+	string getDescricao();
 
 	void setId(int id);
 	void setNoInicio(No *no);
 	void setNoDestino(No* no);
 	void setPeso(double peso);
 	void setPesoVolta(double peso);
+	void setDescricao(string des);
 
 private:
 	int id;
@@ -37,6 +39,7 @@ private:
 	No* noDestino;
 	double peso;
 	double pesoVolta;
+	string descricao;
 	
 };
 
