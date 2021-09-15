@@ -383,12 +383,26 @@ Aresta* Grafo::getAresta(int idInicio, int idDestino)
 
 void Grafo::gravaRota(vector<int> rota)
 {
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[80];
+
+	time(&rawtime);
+#pragma warning(suppress : 4996)
+	timeinfo = localtime(&rawtime);
+
+	strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", timeinfo);
+	std::string str(buffer);
+
+	std::cout << str;
+
 	string path = "ArquivoResultado/";
-	ofstream out(path+"Resultado.txt");
+	fstream out(path + "Resultado.txt", fstream::app);
 	Aresta* a;
-
+	cout << endl;
+	cout << "Gerando um relatorio" << endl;
 	out << "Resultado do arquivo: " << nomeArquivo << endl;
-
+	out << "Horario de execucao: " << str << endl;
 	out << "Caminho formado por ruas:" << endl;
 
 	double distancia = 0;
@@ -408,11 +422,17 @@ void Grafo::gravaRota(vector<int> rota)
 
 	cout << endl;
 	//out << input;
+	out << endl;
+	out << endl;
+	out << "************************************************************************" << endl;
+	out << endl;
+	out << endl;
 	out.close();
 
-	out= ofstream(path + "Resultado2.txt");
+	out= fstream(path + "Resultado2.txt", fstream::app);
 
 	out << "Resultado do arquivo: " << nomeArquivo << endl;
+	out << "Horario de execucao: " << str << endl;
 	out << "Distância percorrida: " << distancia << "m" << endl;
 	out << "Caminho formado por ruas:" << endl;
 
@@ -430,8 +450,12 @@ void Grafo::gravaRota(vector<int> rota)
 		out << "(" << rota.at(i - 1) << "," << rota.at(i) << ") ";
 	}
 	out << endl;
+	out << endl;
+	out << "************************************************************************" << endl;
+	out << endl;
+	out << endl;
 
-
+	cout << "Relatorio Finalizado" << endl;
 	cout << endl;
 	//out << input;
 	out.close();
