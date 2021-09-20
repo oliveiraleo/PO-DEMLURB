@@ -49,7 +49,9 @@ Siga as instruções mostradas [aqui](https://docs.github.com/pt/github/creating
 
 ## Trabalhos relacionados
 
-Em breve
+- Repositório do usuário [dilsonpereira](https://github.com/dilsonpereira/chinese-postman-problem) com código escrito em C++
+- Repositório do usuário [rkistner](https://github.com/rkistner/chinese-postman) com códido escrito em Python
+- G. A. Melo, L. P. N. Santos, M. G. M. Peixoto, S. B. Barbosa e T. H. Nogueira. *Otimização da Rota de Coleta de Lixo na Região do Alto Paranaíba: Uma Pesquisa Aplicada*. [Rev. FSA](www4.unifsa.com.br/revista/index.php/fsa/article/download/2113/491492589), Teresina, v. 17, n. 12, art. 12, p. 239-261, dez. 2020
 
 ## Agradecimentos
 
@@ -57,3 +59,7 @@ Em breve
 - [Departamento de Limpeza Urbana](https://demlurb.pjf.mg.gov.br/apresentacao.php) (DEMLURB / [PJF](https://www.pjf.mg.gov.br/))
 - Departamento de Engenharia do DEMLURB
 - Setor de coleta do DEMLURB
+
+## Licença / License
+
+O códifo deste projeto está licenciado sob a [The MIT License (MIT)](https://opensource.org/licenses/MIT).
