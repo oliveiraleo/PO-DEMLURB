@@ -13,7 +13,7 @@ Problema de otimização da rota do caminhão de lixo (variação do Problema do
 
 - Um módulo alternativo de leitura de arquivos CSV foi implementado e seu código fonte encontra-se na pasta `leitura-alternativa`
 
-**OBS:** Existem outros arquivos README dentro das pastas com informações pertinentes, favor lê-los com atenção
+**OBS:** Existem outros arquivos README dentro das pastas com informações pertinentes, favor ler os mesmos com atenção
 
 ## Requisitos mínimos
 
@@ -42,11 +42,17 @@ git clone https://github.com/oliveiraleo/PO-DEMLURB.git && cd PO-DEMLURB
 
 Siga as instruções mostradas [aqui](https://docs.github.com/pt/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) ou [aqui](https://dicasdeprogramacao.com.br/como-instalar-o-git-no-windows/)
 
+## Arquivos de exemplo
+
+- Arquivo de entrada: [tabela-emparelhamecom-trecho.csv](https://github.com/oliveiraleo/PO-DEMLURB/blob/master/Trabalho-PO/Trabalho-PO/ArquivoLeitura/tabela-emparelhamecom-trecho.csv)
+- Arquivo de saída com uma rota calculada: [Resultado2.txt](https://raw.githubusercontent.com/oliveiraleo/PO-DEMLURB/master/Trabalho-PO/Trabalho-PO/ArquivoResultado/Resultado2.txt)
+
 ## Trabalhos relacionados
 
 Em breve
 
 ## Agradecimentos
+
 - Professor [Marcos Passini](http://lattes.cnpq.br/3319101799280232)
 - [Departamento de Limpeza Urbana](https://demlurb.pjf.mg.gov.br/apresentacao.php) (DEMLURB / [PJF](https://www.pjf.mg.gov.br/))
 - Departamento de Engenharia do DEMLURB
