@@ -12,7 +12,7 @@ string readFileIntoString(const string& path) {
     auto ss = ostringstream{};
     ifstream input_file(path);
     if (!input_file.is_open()) {
-        cerr << "Could not open the file - '"
+        cerr << "Não foi possivel abrir o arquivo - '"
              << path << "'" << endl;
         exit(EXIT_FAILURE);
     }
@@ -22,10 +22,10 @@ string readFileIntoString(const string& path) {
 
 int main()
 {
-    string file_path("../tabela-emparelhamento-sorted-by-cost.csv");
+    string file_path("../tabela-emparelhamento-sorted-by-cost.csv"); // caminho do arquivo a ser lido
     string file_contents;
-    map<int, vector<string>> csv_contents;
-    char delimiter = ';';
+    map<int, vector<string>> csv_contents; // conteudo lido
+    char delimiter = ';'; // separador utilizado no arquivo CSV
 
     file_contents = readFileIntoString(file_path);
 
@@ -44,8 +44,18 @@ int main()
         items.clear();
         counter += 1;
     }
-    if(counter == 38){
-        cout << "Leitura de " << counter << " linhas feita com sucesso!" << endl;
+    // Imprime o que foi lido no arquivo de entrada
+    if(counter > 0){ // somente imprime se o arquivo nao for vazio
+        for(auto it = csv_contents.cbegin(); it != csv_contents.cend(); ++it)
+        {
+            cout << (*it).first << " "; // imprime o numero da linha
+            vector <string> inVect = (*it).second; // prepara a leitura do vetor com os dados de cada linha
+            for (unsigned j=0; j<inVect.size(); j++){
+                cout << inVect[j]; // imprime o conteudo das linhas lidas
+            }
+            cout << endl;
+        }
+        cout << endl << "A leitura de " << counter << " linhas foi realizada com sucesso!" << endl; // imprime o status final da leitura
     }
 
     exit(EXIT_SUCCESS);
