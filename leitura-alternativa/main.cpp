@@ -22,7 +22,7 @@ string readFileIntoString(const string& path) {
 
 int main()
 {
-    string file_path("../tabela-emparelhamento-sorted-by-cost.csv"); // caminho do arquivo a ser lido
+    string file_path("../arquivos/tabela-emparelhamento-sorted-by-cost.csv"); // caminho do arquivo a ser lido
     string file_contents;
     map<int, vector<string>> csv_contents; // conteudo lido
     char delimiter = ';'; // separador utilizado no arquivo CSV
