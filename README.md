@@ -32,13 +32,13 @@ Para execução do módulo de leitura alternativo:
 
 ## Clonando o repositório
 
--> No linux:
+-> No Linux:
 
 ```
 git clone https://github.com/oliveiraleo/PO-DEMLURB.git && cd PO-DEMLURB
 ```
 
--> No windows:
+-> No Windows:
 
 Siga as instruções mostradas [aqui](https://docs.github.com/pt/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) ou [aqui](https://dicasdeprogramacao.com.br/como-instalar-o-git-no-windows/)
 
@@ -62,4 +62,4 @@ Siga as instruções mostradas [aqui](https://docs.github.com/pt/github/creating
 
 ## Licença / License
 
-O códifo deste projeto está licenciado sob a [The MIT License (MIT)](https://opensource.org/licenses/MIT).
+O código deste projeto está licenciado sob a [The MIT License (MIT)](https://opensource.org/licenses/MIT).
